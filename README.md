@@ -86,6 +86,23 @@ The following tools are available through this MCP server:
 - `write_file`: Write content to a file
 - `delete_file`: Delete a file or directory
 
+
+## Other AI tools integration
+
+### LM Studio
+
+Win11 with WSL2:
+```json
+{
+  "mcpServers": {
+    "file-server": {
+      "command": "wsl docker exec -i mcp-file-server python server.py"
+    }
+  }
+}
+```
+
+
 ## License
 
 MIT

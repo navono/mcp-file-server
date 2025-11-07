@@ -1,11 +1,12 @@
-version: '3'
-
 services:
   mcp-file-server:
     build:
       context: .
       dockerfile: Dockerfile
+    image: mcp-file-server
     container_name: mcp-file-server
     volumes:
-      - /Users/abhishekloiwal/CascadeProjects/ClaudeProjects:/data
+      - /mnt/c/Users/ping/Downloads:/data
     restart: unless-stopped
+    stdin_open: true # Keep stdin open for the stdio transport
+    tty: true # Allocate a pseudo-TTY
