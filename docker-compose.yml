@@ -3,10 +3,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        NO_PROXY: ${NO_PROXY}
     image: mcp-file-server
     container_name: mcp-file-server
     volumes:
-      - /mnt/c/Users/ping/Downloads:/data
+      - /mnt/c/Users/supcon/Downloads:/data
     restart: unless-stopped
     stdin_open: true # Keep stdin open for the stdio transport
     tty: true # Allocate a pseudo-TTY
