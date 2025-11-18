@@ -3,10 +3,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: mcp-file-server
+      args:
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        NO_PROXY: ${NO_PROXY}
+    image: mcp-file-server:latest
     container_name: mcp-file-server
     volumes:
-      - /mnt/c/Users/ping/Downloads:/data
+      - /mnt/c/Users/supcon/Downloads:/data/Downloads
+      - /mnt/e/OneDrive/eBooks:/data/eBooks
+      - /mnt/d/sourcecode:/data/sourcecode
+      - /mnt/e/data/ComfyUI/input:/data/ComfyUI/input
     restart: unless-stopped
     stdin_open: true # Keep stdin open for the stdio transport
     tty: true # Allocate a pseudo-TTY
