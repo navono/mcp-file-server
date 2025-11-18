@@ -9,6 +9,8 @@ services:
         NO_PROXY: ${NO_PROXY}
     image: mcp-file-server:latest
     container_name: mcp-file-server
+    ports:
+      - "8001:8001"  # Map port 8001 for streaming HTTP transport
     volumes:
       - /mnt/c/Users/supcon/Downloads:/data/Downloads
       - /mnt/e/OneDrive/eBooks:/data/eBooks
@@ -17,3 +19,4 @@ services:
     restart: unless-stopped
     stdin_open: true # Keep stdin open for the stdio transport
     tty: true # Allocate a pseudo-TTY
+    command: ["uv", "run", "python", "streaming_server.py"]  # Use streaming server for HTTP transport

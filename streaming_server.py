@@ -7,7 +7,8 @@ import uvicorn
 from mcp.server.fastmcp import FastMCP
 
 # Initialize the MCP server for streaming transport on port 8001
-mcp = FastMCP("file-server-streaming", port=8001)
+# Listen on 0.0.0.0 to accept connections from outside the container
+mcp = FastMCP("file-server-streaming", host="0.0.0.0", port=8001)
 
 # Set the base directory where we'll read and write files
 BASE_DIR = "/data"  # This will be mapped to your local directory in Docker
