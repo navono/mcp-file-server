@@ -1,5 +1,5 @@
 services:
-  mcp-file-server:
+  mcp-file-server-streaming:
     build:
       context: .
       dockerfile: Dockerfile
@@ -7,8 +7,8 @@ services:
         HTTP_PROXY: ${HTTP_PROXY}
         HTTPS_PROXY: ${HTTPS_PROXY}
         NO_PROXY: ${NO_PROXY}
-    image: mcp-file-server:latest
-    container_name: mcp-file-server
+    image: mcp-file-server:streaming
+    container_name: mcp-file-server-streaming
     ports:
       - "8001:8001"  # Map port 8001 for streaming HTTP transport
     volumes:

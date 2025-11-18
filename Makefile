@@ -1,4 +1,4 @@
-IMAGE_NAME = mcp-file-server
+IMAGE_NAME = mcp-file-server:streaming
 HTTP_PROXY ?=http://172.18.32.1:18899
 HTTPS_PROXY ?=http://172.18.32.1:18899
 NO_PROXY ?=
